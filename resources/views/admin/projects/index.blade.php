@@ -33,6 +33,18 @@
                                         Modifica questo progetto
                                     </a>
                                 </div>
+
+                                {{-- Delete --}}
+                                <div class="pb-2 border-bottom border-3 border-dark d-inline-block">
+                                    <form onsubmit="return confirm('Sicuro che vuoi eliminare il progetto?')" action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger w-100">
+                                            Elimina il progetto
+                                        </button>
+                                    </form>
+                                </div>
                             </li>
                         @endforeach
                     </ul>
