@@ -26,6 +26,13 @@
                                         Vedi il progetto
                                     </a>
                                 </div>
+
+                                {{-- Edit --}}
+                                <div class="pb-2 border-bottom border-3 border-dark d-inline-block">
+                                    <a class="btn btn-warning ms-2" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">
+                                        Modifica questo progetto
+                                    </a>
+                                </div>
                             </li>
                         @endforeach
                     </ul>

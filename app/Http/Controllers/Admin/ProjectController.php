@@ -62,7 +62,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -70,7 +70,11 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $validDatas = $request->validate(self::$validRules);
+
+        $project->update($validDatas);
+
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**

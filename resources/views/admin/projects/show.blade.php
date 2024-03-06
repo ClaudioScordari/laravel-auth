@@ -15,6 +15,13 @@
                         {{ $project->description }}
                     </p>
 
+                    {{-- Progetti --}}
+                    <div>
+                        <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">
+                            Torna ai progetti
+                        </a>
+                    </div>
+
                     <br>
 
                     La dashboard è una pagina privata (protetta dal middleware)
