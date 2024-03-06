@@ -20,6 +20,7 @@
                                     Nome progetto: {{ $project->name }}
                                 </h2>
 
+                                {{-- Show --}}
                                 <div class="pb-2 border-bottom border-3 border-dark d-inline-block">
                                     <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">
                                         Vedi il progetto

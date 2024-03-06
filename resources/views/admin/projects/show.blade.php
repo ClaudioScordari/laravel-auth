@@ -11,6 +11,10 @@
                         {{ $project->name }}
                     </h1>
 
+                    <p>
+                        {{ $project->description }}
+                    </p>
+
                     <br>
 
                     La dashboard è una pagina privata (protetta dal middleware)

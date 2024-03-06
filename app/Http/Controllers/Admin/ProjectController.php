@@ -10,6 +10,12 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
+    // Validazine Backend
+    private static $validRules = [
+        'name'         => 'required|max:64', 
+        'description'   => 'nullable|max:4096' 
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -25,7 +31,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -33,7 +39,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validDatas = $request->validate($this::$validRules);
+
+        $project = Project::create([
+            'name' => $validDatas['name'],
+            'description' => $validDatas['description']
+        ]);
+
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
