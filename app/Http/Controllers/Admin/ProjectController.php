@@ -5,17 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// Request
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+
 // Models
 use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    // Validazine Backend
-    private static $validRules = [
-        'name'         => 'required|max:64', 
-        'description'   => 'nullable|max:4096' 
-    ];
-
     /**
      * Display a listing of the resource.
      */
@@ -37,9 +35,9 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $validDatas = $request->validate($this::$validRules);
+        $validDatas = $request->validated();
 
         $project = Project::create([
             'name' => $validDatas['name'],
@@ -68,9 +66,9 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $validDatas = $request->validate(self::$validRules);
+        $validDatas = $request->validated();
 
         $project->update($validDatas);
 

@@ -15,7 +15,7 @@
 
                     <ul>
                         @foreach ($projects as $project)
-                            <li class="mb-3">
+                            <li class="mb-5">
                                 <h2>
                                     Nome progetto: {{ $project->name }}
                                 </h2>
